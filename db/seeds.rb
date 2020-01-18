@@ -7,24 +7,20 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-#
+
 Product.destroy_all
-Review.destroy_all
-# 50.times do |index|
-#   Product.create!(name: Faker::Games::Witcher.monster,
-#     cost: Faker::Number.decimal(r_digits: 2),
-#     country_of_origin: Faker::WorldCup.team)
-#     # binding.pry
-    300.times do |index|
-      50.times do |index|
-        Product.create!(name: Faker::Games::Witcher.monster,
-          cost: Faker::Number.decimal(r_digits: 2),
-          country_of_origin: Faker::WorldCup.team)
-      Review.create!(author: Faker::TvShows::BojackHorseman.character,
-        content_body: Faker::Hipster.paragraph(sentence_count: 3), rating: Faker::Number.within(range: 1..5),
-        product_id: Product.ids)
+
+50.times do |index|
+  product = Product.create!(name: Faker::Games::Witcher.monster,
+    cost: Faker::Number.decimal(r_digits: 2),
+    country_of_origin: Faker::WorldCup.team)
+    5.times do |index|
+      product.reviews.create!(author: Faker::TvShows::BojackHorseman.character,
+        content_body: Faker::Hipster.words(number: 15), rating: Faker::Number.within(range: 1..5),
+        product_id: product.id)
       end
-    end
+  end
+
 
 
     p "Created #{Review.count} reviews, and #{Product.count}"
