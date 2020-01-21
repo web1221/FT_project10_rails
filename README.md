@@ -12,6 +12,8 @@
 * Copy link from github
 * Open terminal and __git clone__ link
 * __cd__ into project and if you have bundler installed you can run __bundle install__ to install gems
+* To create database run __rake db:create__ in project directory
+* To see site run __rails s__ in project directory
 
 
 ## Known Bugs
