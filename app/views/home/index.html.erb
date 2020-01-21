@@ -1,9 +1,7 @@
 <h2>Welcome!</h2>
 <h3>Mario's Super Store is a one stop shop til you drop. You can find all your needs here! From Organic Candles to Jazz posters. Never shop anywhere else again!</h3>
 
-<h4>Here are the three most recently added products:</h4>
-
-<h4>Here are products made in the United States:</h4>
+<h4>Here are products most recently added:</h4>
 <% if @products.any? %>
 <ul>
   <% @products.three_most_recent.each do |p| %>

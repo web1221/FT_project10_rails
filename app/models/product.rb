@@ -8,8 +8,8 @@ class Product < ApplicationRecord
   scope :usa_product, -> { where(country_of_origin: "United States") }
 
   def self.most_reviewed
-    reviews = []
     self.all.each do |product|
+      reviews = []
       reviews.push(product.reviews)
     end
     reviews
