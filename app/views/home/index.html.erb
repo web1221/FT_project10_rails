@@ -3,22 +3,25 @@
 
 <h4>Here are the three most recently added products:</h4>
 
+<h4>Here are products made in the United States:</h4>
+<% if @products.any? %>
+<ul>
   <% @products.three_most_recent.each do |p| %>
-    <ul>
-      <li>
-        <%= link_to p.name, product_path(p) %>
-      </li>
-    </ul>
+  <li><%= link_to p.name, product_path(p) %></li>
   <% end %>
-  <h4>Here are products made in the United States:</h4>
-  <% if @products.any? %>
-    <ul>
-      <% @products.usa_product.each do |p| %>
-        <li><%= link_to p.name, product_path(p) %></li>
-      <% end %>
-    </ul>
-  <% else %>
-    <p>There are no products made in the United States yet.</p>
+</ul>
+<% else %>
+<p>There are no products made in the United States yet.</p>
+<% end %>
+<h4>Here are products made in the United States:</h4>
+<% if @products.any? %>
+<ul>
+  <% @products.usa_product.each do |p| %>
+  <li><%= link_to p.name, product_path(p) %></li>
   <% end %>
+</ul>
+<% else %>
+<p>There are no products made in the United States yet.</p>
+<% end %>
 
-  <p><%= link_to "Products", products_path %></p>
+<p><%= link_to "Products", products_path %></p>

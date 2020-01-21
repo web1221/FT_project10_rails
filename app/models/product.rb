@@ -8,6 +8,7 @@ class Product < ApplicationRecord
   scope :usa_product, -> { where(country_of_origin: "United States") }
 
 
+
   before_save(:titleize_product)
 
   private
