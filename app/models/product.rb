@@ -7,7 +7,13 @@ class Product < ApplicationRecord
   scope :three_most_recent, -> { order(created_at: :desc).limit(3)}
   scope :usa_product, -> { where(country_of_origin: "United States") }
 
-
+  def self.most_reviewed
+    reviews = []
+    self.all.each do |product|
+      reviews.push(product.reviews)
+    end
+    reviews
+  end
 
   before_save(:titleize_product)
 
